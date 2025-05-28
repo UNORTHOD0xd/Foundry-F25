@@ -4,15 +4,32 @@ pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../src/FundMe.sol";
+import {DeployFundMe} from "../scripts/DeployFundMe.s.sol";
 
 contract FundMeTest is Test {
     FundMe fundMe;
 
     function setUp() external {
-        FundMe fundMe = new FundMe();
+        // fundMe = new FundMe(0x694AA1769357215DE4FAC081bf1f309aDC325306); // Sepolia ETH/USD Price Feed Address
+        DeployFundMe deployFundMe = new DeployFundMe();
+        fundMe = deployFundMe.run();
+        // Alternatively, you can use the address of the deployed contract
+    }
 
     function testMinimumDollarIsFive() public {
         assertEq(fundMe.MINIMUM_USD(),5e18);
+    }
+
+    function testOwnerIsMsgSender() public {
+        assertEq(fundMe.i_owner(), msg.sender);
+    }
+
+    function testPriceFeedVersionIsAccurate() public {
+        // This is a test to check if the price feed version is accurate
+        // We can use a mock or a real price feed address here
+        // For simplicity, we will just check if the price feed address is not zero
+        uint256 version = fundMe.getVersion();
+        assertEq(version, 4);
     }
 }
 
