@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fund Me App</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #4f46e5;
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #374151;
+        text-align: left;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+
+      .button-group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        color: white;
+      }
+
+      #connectButton {
+        background-color: #6366f1;
+      }
+
+      #connectButton:hover {
+        background-color: #4f46e5;
+      }
+
+      #balanceButton {
+        background-color: #3b82f6;
+      }
+
+      #balanceButton:hover {
+        background-color: #2563eb;
+      }
+
+      #fundButton {
+        background-color: #10b981;
+      }
+
+      #fundButton:hover {
+        background-color: #059669;
+      }
+
+      #withdrawButton {
+        background-color: #ef4444;
+      }
+
+      #withdrawButton:hover {
+        background-color: #dc2626;
+      }
+
+      #statusMessage {
+        color: #6b7280;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        min-height: 1.2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Fund Me Contract</h1>
+
+      <div class="button-group">
+        <button id="connectButton">Connect Wallet</button>
+        <button id="balanceButton">Get Balance</button>
+      </div>
+
+      <label for="ethAmount">ETH Amount</label>
+      <input id="ethAmount" type="text" placeholder="0.1" />
+
+      <div class="button-group">
+        <button id="fundButton">Fund</button>
+        <button id="withdrawButton">Withdraw</button>
+      </div>
+
+      <div id="statusMessage"></div>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

@@ -12,13 +12,13 @@ import {HelperConfig} from "./HelperConfig.s.sol";
 contract DeployFundMe is Script {
     function run() external returns (FundMe) {
 
-        HelperConfig helperConfig = new HelperConfig();
+        HelperConfig helperConfig = new HelperConfig(); 
         address ethUsdPriceFeed = helperConfig.activeNetworkConfig();
         // If you want to use the price feed address from the HelperConfig
 
         vm.startBroadcast();
-        FundMe fundMe = new FundMe(ethUsdPriceFeed); // Sepolia ETH/USD Price Feed
+        FundMe fundMe = new FundMe(ethUsdPriceFeed); // Deploying the FundMe contract with the price feed address
         vm.stopBroadcast();
         return fundMe;
-    }
+    } 
 }
